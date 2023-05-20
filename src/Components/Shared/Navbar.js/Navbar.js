@@ -44,7 +44,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Get started</a>
+                <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary">Open drawer</label>
                 </div>
             </div>
             <Outlet></Outlet>

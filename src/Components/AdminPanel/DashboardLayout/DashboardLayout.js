@@ -1,7 +1,7 @@
 import React from 'react';
-import Navbar from '../Shared/Navbar.js/Navbar';
+import Navbar from '../../Shared/Navbar.js/Navbar';
 import { Link, Outlet } from 'react-router-dom';
-import ProductList from './Products/ProductList/ProductList';
+import ProductList from '../Products/ProductList/ProductList';
 
 const DashboardLayout = () => {
     return (
@@ -21,7 +21,7 @@ const DashboardLayout = () => {
       <li><Link to={"/dashboard"}>Dashboard</Link></li>
       <li><Link to={"/productlist"}>Product List</Link></li>
       <li><Link to={"/customerlist"}>Customer List</Link></li>
-      <li><Link to={"/orderlist"}>Customer List</Link></li>
+      <li><Link to={"/orderlist"}>Order List</Link></li>
     </ul>
   
   </div>
