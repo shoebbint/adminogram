@@ -1,4 +1,5 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -46,6 +47,7 @@ const Navbar = () => {
                     <a className="btn">Get started</a>
                 </div>
             </div>
+            <Outlet></Outlet>
         </div>
     );
 };

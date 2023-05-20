@@ -8,21 +8,28 @@ import ProductList from './Components/AdminPanel/Products/ProductList/ProductLis
 import Dashboard from './Components/AdminPanel/Dashboard/Dashboard';
 import CustomerList from './Components/AdminPanel/Customers/CustomerList/CustomerList';
 import OrderList from './Components/AdminPanel/Orders/OrderList/OrderList';
+import Login from './Components/Shared/Login/Login/Login';
+import Register from './Components/Shared/Login/Register/Register';
+import Home from './Components/Home/Home/Home';
 
 function App() {
   return (
     <div className="App">
-		<Navbar></Navbar>
 
 
 <Routes>
+<Route path='/login' element={<Login/>} />
 
-{/* <Route path='/login' element={<Login/>} /> */}
+<Route path='/register' element={<Register/>} />
+<Route element={<Navbar></Navbar>}> 
+<Route path='/home' element={<Home/>} /> 
 <Route path='/' element={<DashboardLayout/>}>
+
    <Route path='/productlist' element={<ProductList/>} />
    <Route path='/dashboard' element={<Dashboard/>} />
    <Route path='/customerlist' element={<CustomerList/>} />
    <Route path='/orderlist' element={<OrderList/>} />
+</Route>
 </Route>
 
 
