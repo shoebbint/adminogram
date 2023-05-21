@@ -51,19 +51,13 @@ const ProductList = () => {
 
   )}
           </tbody>
-          {/* foot */}
-          <tfoot>
-            <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
-              <th></th>
-            </tr>
-          </tfoot>
-
         </table>
       </div>
+      <div className="btn-group mt-10">
+  <button className="btn">«</button>
+  <button className="btn">Page 1</button>
+  <button className="btn">»</button>
+</div>
     </div>
   );
 };

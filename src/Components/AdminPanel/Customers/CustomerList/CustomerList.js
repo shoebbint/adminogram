@@ -56,7 +56,13 @@ const CustomerList = () => {
 
 
         </table>
+
       </div>
+      <div className="btn-group mt-10">
+  <button className="btn">«</button>
+  <button className="btn">Page 1</button>
+  <button className="btn">»</button>
+</div>
     </div>
   );
 };

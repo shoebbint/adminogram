@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../../firebase.init";
 import register from '../../../../images/register.jpg'
 import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
 const Register = () => {
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
@@ -29,6 +30,8 @@ const Register = () => {
         const regPassword = regPasswordRef.current.value;
         console.log(regEmail, regPassword)
         createUserWithEmailAndPassword(regEmail, regPassword);
+        toast('Registered Successfully');
+        navigate("/login")
 
     };
     if (user3 ||  user) {
@@ -49,22 +52,19 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text">Name</span>
                                     </label>
-                                    <input ref={nameRef} type="text" placeholder="Name" className="input input-bordered" />
+                                    <input required ref={nameRef} type="text" placeholder="Name" className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input ref={regEmailRef} type="email" placeholder="email" className="input input-bordered" />
+                                    <input required ref={regEmailRef} type="email" placeholder="email" className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input ref={regPasswordRef} type="password" placeholder="password" className="input input-bordered" />
-                                    <label className="label">
-                                        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                    </label>
+                                    <input required  ref={regPasswordRef} type="password" placeholder="password" className="input input-bordered" />
                                 </div>
                                 <div className="form-control mt-6">
                                     <button type='submit' className="btn btn-primary">Register</button>
