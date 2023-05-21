@@ -1,41 +1,30 @@
 import React from 'react';
-import { useAuthState, useSendEmailVerification } from 'react-firebase-hooks/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Navigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import auth from '../../../../../firebase.init';
+import auth from '../../../../firebase.init';
+
+
 
 
 const RequireAuth = ({children}) => {
-    const [sendEmailVerification, sending, error] = useSendEmailVerification(auth);
-    const [user,loading] = useAuthState(auth);
-    const location=useLocation();
-    // if(loading){
-    //   return <Loading></Loading>
-    // }
-    if (!user) {
-        return <Navigate to="/login" state={{ from: location }} replace />;
-      }
-    if (user.providerData[0]?.providerId==="password" && !user.emailVerified) {
-        return (
-          <div>
-          <h1 className='text-danger'>Your email is not verified</h1>
-          <h3 className='text-primary'>Please verify your email</h3>
-          <button className='btn btn-warning'
-                  onClick={async () => {
-                    const success = await sendEmailVerification();
-                    if (success) {
-                      toast('Sent email');
-                    }
-                  }}
-                >
-                  Send Verification email again
-                </button>
-                  </div>
-        )
+  let[user,loading] = useAuthState(auth);
+  let location = useLocation();
+  // if(loading){
+  //   return <Loading></Loading>
+  // }
+  if (!user) {
+    // Redirect them to the /login page, but save the current location they were
+    // trying to go to when they were redirected. This allows us to send them
+    // along to that page after they login, which is a nicer user experience
+    // than dropping them off on the home page.
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+  // else{
+  //   <Navigate to="/checkout"></Navigate>
+  // }
 
-      }
-
-      return children;
+  return children;
 };
 
 export default RequireAuth;

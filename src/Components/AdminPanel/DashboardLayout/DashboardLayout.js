@@ -5,30 +5,31 @@ import ProductList from '../Products/ProductList/ProductList';
 import auth from '../../../firebase.init';
 import { signOut } from 'firebase/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleChevronDown, faUser, faEye, faRightFromBracket, faChartLine, faGift, faPeopleGroup, faCartFlatbedSuitcase, faCircleChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faCircleChevronDown, faUser, faEye, faRightFromBracket, faChartLine, faGift, faPeopleGroup, faCartFlatbedSuitcase, faCircleChevronRight, faBars, faSignIn, faRegistered } from '@fortawesome/free-solid-svg-icons'
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 const DashboardLayout = () => {
   const [user, loading] = useAuthState(auth);
-  console.log(user)
   const navigate = useNavigate()
   const handleSignout = () => {
     signOut(auth);
     navigate('/login');
   }
   return (
-    <div>
+    <div className=''>
       <div className="navbar bg-base-100">
         <div className="flex-1">
-          <a className="btn btn-ghost normal-case text-xl">adminOgram</a>
+        {/* <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label> */}
+        <label htmlFor="my-drawer-2" className='lg:hidden drawer-button'><FontAwesomeIcon className='' icon={faBars} size="xl" /></label>
+          <Link to={"/"} className=" normal-case text-xl">adminOgram</Link>
         </div>
         <div className="flex-none gap-2">
           <div className="form-control">
             <input type="text" placeholder="Search" className="input input-bordered" />
           </div>
           <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar ">
+              <div className="w-10 rounded-full ">
                 {user?.photoURL ?
                   <img src={user?.photoURL} /> : <FontAwesomeIcon size='lg' className='p-2' icon={faUser} />
                 }
@@ -52,13 +53,11 @@ const DashboardLayout = () => {
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content  ">
 
-          <Outlet />
-          <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
-
+          <Outlet />         
         </div>
-        <div className="drawer-side">
-          <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+        <div className="drawer-side ">
+          <label htmlFor="my-drawer-2" className="drawer-overlay "></label>
+          <ul className="menu p-4 w-80 bg-base-100 text-base-content ">
 
             <li><Link to={"/"}><FontAwesomeIcon icon={faChartLine} /> Dashboard</Link></li>
             <li><Link to={"/productlist"}><FontAwesomeIcon icon={faGift} /> Product List</Link></li>
@@ -68,7 +67,7 @@ const DashboardLayout = () => {
               <label tabIndex={0} className=""><FontAwesomeIcon icon={faPeopleGroup} /> Customers <FontAwesomeIcon className='ms-20' icon={faCircleChevronRight} /></label>
                 <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                 <li><Link to={"/customerlist"}>Customer List</Link></li>   
-                  <li><a>Add Customer</a></li>
+                  <li><Link to={"/addcustomer"}>Add Customer</Link></li>
                 </ul>
               </button>
               {/* <label className="dropdown dropdown-bottom" tabIndex={0} className=""><FontAwesomeIcon icon={faPeopleGroup} /> Customers <FontAwesomeIcon className='ms-20' icon={faCircleChevronDown} /></label>
@@ -85,6 +84,8 @@ const DashboardLayout = () => {
 
             <li><Link to={"/orderlist"}><FontAwesomeIcon icon={faCartFlatbedSuitcase} /> Order List</Link></li>
             <li><Link to={"/home"}><FontAwesomeIcon icon={faEye} /> Live view</Link></li>
+            <li><Link to={"/login"}><FontAwesomeIcon icon={faSignIn} /> Login view</Link></li>
+            <li><Link to={"/register"}><FontAwesomeIcon icon={faRegistered} /> Register view</Link></li>
             <button className='btn btn-primary' onClick={handleSignout}><FontAwesomeIcon className='me-2' icon={faRightFromBracket} />  Log out</button>
           </ul>
 

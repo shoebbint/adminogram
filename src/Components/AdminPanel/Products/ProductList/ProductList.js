@@ -1,5 +1,6 @@
 import React from 'react';
 import UseProducts from '../../../../Hooks/UseProducts';
+import { Link } from 'react-router-dom';
 
 const ProductList = () => {
   const [products,setProducts]=UseProducts()
@@ -45,7 +46,7 @@ const ProductList = () => {
               </td>
               <td>              {product.price}$</td>
               <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+              <Link  key={product} to={`/${product.id}`}><button className="btn btn-ghost btn-xs">details</button></Link>
               </th>
             </tr>
 

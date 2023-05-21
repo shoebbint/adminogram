@@ -13,6 +13,9 @@ import Register from './Components/Shared/Login/Register/Register';
 import Home from './Components/Home/Home/Home';
 import Cart from './Components/Cart/Cart/Cart';
 import { ToastContainer } from 'react-toastify';
+import AddCustomer from './Components/AdminPanel/Customers/AddCustomer/AddCustomer';
+import RequireAuth from './Components/Shared/Login/RequireAuth/RequireAuth';
+import DetailView from './Components/AdminPanel/DetailView/DetailView';
 
 function App() {
   return (
@@ -24,19 +27,19 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route element={<Cart />} >
           <Route element={<Navbar></Navbar>}>
-            <Route path='/home' element={<Home />} />
+            <Route path='/home' element={<RequireAuth><Home /></RequireAuth> } />
           </Route>
-          <Route element={<DashboardLayout />}>
+          <Route element={<RequireAuth><DashboardLayout /></RequireAuth>}>
             <Route path='/productlist' element={<ProductList />} />
             <Route path='/' element={<Dashboard />} />
             <Route path='/customerlist' element={<CustomerList />} />
+            <Route path='/addcustomer' element={<AddCustomer />} />
             <Route path='/orderlist' element={<OrderList />} />
+            <Route path='/:id' element={<DetailView />} />
           </Route>
-
         </Route>
       </Routes>
       <ToastContainer />
-
     </div>
   );
 }

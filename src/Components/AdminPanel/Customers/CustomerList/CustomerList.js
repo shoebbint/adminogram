@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import UseCustomers from '../../../../Hooks/UseCustomers';
+import { Link, json } from 'react-router-dom';
 
 const CustomerList = () => {
-  const [customers, SetCustomers] = UseCustomers()
+  const [customers, setCustomers] = UseCustomers();
+  const [data, setData] = useState();
+  const newData=localStorage.getItem("newCustomer");
+  const newCustomer=JSON.parse(newData);
+  const updatedCustomers=[...customers,newCustomer];
+
   console.log(customers);
   return (
     <div>
@@ -22,7 +28,7 @@ const CustomerList = () => {
           <tbody>
 
             {
-              customers.map(customer =>
+              updatedCustomers.map(customer =>
                 <tr>
                   <th>
                     {customer.id}
@@ -44,9 +50,9 @@ const CustomerList = () => {
                     {customer.address}
 
                   </td>
-                  <td>{customer.orders.length}</td>
+                  <td>{customer?.orders?.length}</td>
                   <th>
-                    <button className="btn btn-ghost btn-xs">details</button>
+                    <Link  key={customer} to={`/${customer.id}`}><button className="btn btn-ghost btn-xs">details</button></Link>
                   </th>
                 </tr>
               )

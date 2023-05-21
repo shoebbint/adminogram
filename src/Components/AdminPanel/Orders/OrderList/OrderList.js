@@ -1,5 +1,6 @@
 import React from 'react';
 import UseOrders from '../../../../Hooks/UseOrders';
+import { Link } from 'react-router-dom';
 
 const OrderList = () => {
   const [orders,setOrders]=UseOrders();
@@ -12,11 +13,11 @@ const OrderList = () => {
       <tr>
         <th></th> 
         <th>Order Time</th> 
-        <th>Customer Name</th> 
+        <th>order Name</th> 
         <th>company</th> 
         <th>location</th> 
-        <th>Last Login</th> 
-        <th>Favorite Color</th>
+        <th>Quantity</th> 
+        <th>Action</th>
       </tr>
     </thead> 
     <tbody>
@@ -25,11 +26,11 @@ const OrderList = () => {
       <tr>
         <th>{order.id}</th> 
         <td>{order.date}</td> 
-        <td>{order.userId}</td> 
+        <td>{order.userName}</td> 
         <td>Littel, Schaden and Vandervort</td> 
         <td>Canada</td> 
-        <td>12/16/2020</td> 
-        <td>Blue</td>
+        <td>{order.products[0].quantity}</td> 
+        <td><Link  key={order} to={`/${order.id}`}><button className="btn btn-ghost btn-xs">details</button></Link></td>
       </tr>
 )}
           </tbody>
