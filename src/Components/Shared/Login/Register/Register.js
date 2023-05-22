@@ -62,9 +62,10 @@ const Register = () => {
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Password</span>
+                                        <span className="label-text" >Password</span>
                                     </label>
-                                    <input required  ref={regPasswordRef} type="password" placeholder="password" className="input input-bordered" />
+                                    <input pattern=".{8,}" title="Must contain at least 8 or more characters"
+                                     required  ref={regPasswordRef} type="password" placeholder="password" className="input input-bordered" />
                                 </div>
                                 <div className="form-control mt-6">
                                     <button type='submit' className="btn btn-primary">Register</button>

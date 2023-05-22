@@ -22,14 +22,14 @@ const OrderList = () => {
     </thead> 
     <tbody>
       {
-        orders.map(order=>
+        orders?.map(order=>
       <tr>
         <th>{order.id}</th> 
         <td>{order.date}</td> 
         <td>{order.userName}</td> 
         <td>Littel, Schaden and Vandervort</td> 
         <td>Canada</td> 
-        <td>{order.products[0].quantity}</td> 
+        <td>{order?.products[0]?.quantity}</td> 
         <td><Link  key={order} to={`/${order.id}`}><button className="btn btn-ghost btn-xs">details</button></Link></td>
       </tr>
 )}

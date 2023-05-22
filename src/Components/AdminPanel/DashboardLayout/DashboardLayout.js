@@ -21,14 +21,14 @@ const DashboardLayout = () => {
         <div className="flex-1">
         {/* <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label> */}
         <label htmlFor="my-drawer-2" className='lg:hidden drawer-button'><FontAwesomeIcon className='' icon={faBars} size="xl" /></label>
-          <Link to={"/"} className=" normal-case text-xl">adminOgram</Link>
+          <Link to={"/"} className=" normal-case text-xl mx-5">adminOgram</Link>
         </div>
         <div className="flex-none gap-2">
           <div className="form-control">
             <input type="text" placeholder="Search" className="input input-bordered" />
           </div>
           <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar ">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar me-5 ">
               <div className="w-10 rounded-full ">
                 {user?.photoURL ?
                   <img src={user?.photoURL} /> : <FontAwesomeIcon size='lg' className='p-2' icon={faUser} />

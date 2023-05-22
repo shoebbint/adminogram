@@ -1,12 +1,10 @@
 import React, { useRef } from 'react';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import auth from '../../../../firebase.init';
 import { toast } from 'react-toastify';
-
-
 import SocialLogin from '../SocialLogin/SocialLogin';
 import login from '../../../../images/signin.jpg'
-import auth from '../../../../firebase.init';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -31,7 +29,7 @@ const Login = () => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-        console.log(email,password)
+        // console.log(email,password)
         signInWithEmailAndPassword(email, password);
         // navigate(from, { replace: true });
     }

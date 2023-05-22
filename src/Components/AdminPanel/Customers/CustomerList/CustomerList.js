@@ -31,28 +31,28 @@ const CustomerList = () => {
               updatedCustomers.map(customer =>
                 <tr>
                   <th>
-                    {customer.id}
+                    {customer?.id}
                   </th>
                   <td>
                     <div className="flex items-center space-x-3">
                       <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
-                          <img src={customer.image} alt="Avatar Tailwind CSS Component" />
+                          <img src={customer?.image} alt="Avatar Tailwind CSS Component" />
                         </div>
                       </div>
                       <div>
-                        <div className="font-bold">{customer.name}</div>
+                        <div className="font-bold">{customer?.name}</div>
                         {/* <div className="text-sm opacity-50">United States</div> */}
                       </div>
                     </div>
                   </td>
                   <td>
-                    {customer.address}
+                    {customer?.address}
 
                   </td>
                   <td>{customer?.orders?.length}</td>
                   <th>
-                    <Link  key={customer} to={`/${customer.id}`}><button className="btn btn-ghost btn-xs">details</button></Link>
+                    <Link  key={customer} to={`/${customer?.id}`}><button className="btn btn-ghost btn-xs">details</button></Link>
                   </th>
                 </tr>
               )
