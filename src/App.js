@@ -16,6 +16,8 @@ import { ToastContainer } from 'react-toastify';
 import AddCustomer from './Components/AdminPanel/Customers/AddCustomer/AddCustomer';
 import RequireAuth from './Components/Shared/Login/RequireAuth/RequireAuth';
 import DetailView from './Components/AdminPanel/DetailView/DetailView';
+import ProductDetails from './Components/Products/ProductDetails/ProductDetails';
+import CheckOut from './Components/CheckOut/CheckOut';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
         <Route element={<Cart />} >
           <Route element={<Navbar></Navbar>}>
             <Route path='/home' element={<RequireAuth><Home /></RequireAuth> } />
+            <Route path='/productdetail' element={<ProductDetails />} />
+            <Route path='/checkout' element={<CheckOut />} />
           </Route>
           <Route element={<RequireAuth><DashboardLayout /></RequireAuth>}>
             <Route path='/productlist' element={<ProductList />} />
@@ -35,6 +39,7 @@ function App() {
             <Route path='/customerlist' element={<CustomerList />} />
             <Route path='/addcustomer' element={<AddCustomer />} />
             <Route path='/orderlist' element={<OrderList />} />
+   
             <Route path='/:id' element={<DetailView />} />
           </Route>
         </Route>

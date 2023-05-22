@@ -1,5 +1,7 @@
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -25,14 +27,14 @@ const Navbar = () => {
                             <li><a>Item 3</a></li>
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                    <Link to={"/home"} className="btn btn-ghost normal-case text-xl">ProducThela</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li><a>Item 1</a></li>
+                        <li><a>About</a></li>
                         <li tabIndex={0}>
                             <a>
-                                Parent
+                                Shop
                                 <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
                             </a>
                             <ul className="p-2">
@@ -40,11 +42,11 @@ const Navbar = () => {
                                 <li><a>Submenu 2</a></li>
                             </ul>
                         </li>
-                        <li><a>Item 3</a></li>
+                        <li><a>Contact</a></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
-                <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary">Open drawer</label>
+                <label htmlFor="my-drawer-4" className="drawer-button mx-8 "><FontAwesomeIcon icon={faCartShopping} size="xl" /></label>
                 </div>
             </div>
             <Outlet></Outlet>

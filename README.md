@@ -3,8 +3,31 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
+## `used libraries`
+Tailwind CSS and DaisyUI: Utilize Tailwind CSS framework along with DaisyUI for rapid UI development and styling.
 
+React Router: Implement client-side routing to enable navigation between different pages or views in the application.
+
+Axios: Use Axios to make HTTP requests to external APIs or your backend server.
+
+Firebase Authentication: Authenticate users using Firebase Authentication service to enable secure access to your application.
+
+React Firebase Hooks: Utilize React Firebase Hooks to simplify interactions with Firebase services, such as Firestore, Realtime Database, and Authentication.
+
+Font Awesome Icons: Access a wide range of icons from Font Awesome and use them in your application.
 In the project directory, you can run:
+
+###  `Folder Structure`
+The project follows a common folder structure for a React application:
+
+src: Contains the source code files.
+components: Contains reusable components used throughout the application.
+pages: Contains individual page components that are rendered by React Router.
+services: Contains service modules responsible for interacting with external APIs or backend services.
+utils: Contains utility functions or helper modules.
+firebaseConfig.js: Firebase configuration file.
+App.js: Main application component.
+index.js: Entry point of the application.
 
 ### `npm start`
 

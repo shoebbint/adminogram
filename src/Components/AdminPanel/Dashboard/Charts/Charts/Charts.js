@@ -14,7 +14,7 @@ const Charts = () => {
               <h1>Total sales and revenue</h1>
                 <Sales></Sales>
             </div>
-            <div className='grid grid-cols-2 border justify-center items-center'>
+            <div className='justify-center items-center grid md:grid-cols-2   border '>
                 <div className='p-5'>
                 <h1>Weekly Sales</h1>
                     <WeeklySales></WeeklySales>
