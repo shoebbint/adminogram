@@ -21,12 +21,19 @@ In the project directory, you can run:
 The project follows a common folder structure for a React application:
 
 src: Contains the source code files.
+
 components: Contains reusable components used throughout the application.
+
 pages: Contains individual page components that are rendered by React Router.
+
 services: Contains service modules responsible for interacting with external APIs or backend services.
+
 utils: Contains utility functions or helper modules.
+
 firebaseConfig.js: Firebase configuration file.
+
 App.js: Main application component.
+
 index.js: Entry point of the application.
 
 ### `npm start`
